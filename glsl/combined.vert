@@ -116,7 +116,20 @@ vec4 SelectPalettedFraction(float x)
 
 void main()
 {
-	gl_Position = vec4((aVertexPosition.xyz - Scroll.xyz) * r1 + r2, 1);
+	gl_Position = vec4(
+		(
+			vec4(aVertexPosition.xyz - Scroll, 1)
+			*
+			 mat4(
+vec4(1, 0, 0, 0),
+vec4(0, 0.9969173, 0.0784591, 0),
+vec4(0, -0.0784591, 0.9969173, 0),
+vec4(0, 0, 0, 1)
+)
+		).xyz * r1 + r2
+		,
+		1
+	);
 	vTexCoord = aVertexTexCoord;
 	vTexMetadata = aVertexTexMetadata;
 

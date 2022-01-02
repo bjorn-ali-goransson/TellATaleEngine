@@ -306,6 +306,38 @@ namespace OpenRA
 
 			Console.WriteLine("Platform is {0}", Platform.CurrentPlatform);
 
+			var m = Util.IdentityMatrix();
+
+			float x = 1;
+			float y = 0;
+			float z = 0;
+			float sin = MathF.Sin(MathF.PI / 40);
+			float cos = MathF.Cos(MathF.PI / 40);
+			float xx = x * x;
+			float yy = y * y;
+			float zz = z * z;
+			float xy = x * y;
+			float xz = x * z;
+			float yz = y * z;
+			m[0] = xx + (cos * (1f - xx));
+			m[1] = xy - (cos * xy) + (sin * z);
+			m[2] = xz - (cos * xz) - (sin * y);
+			m[3] = 0;
+			m[4] = xy - (cos * xy) - (sin * z);
+			m[5] = yy + (cos * (1f - yy));
+			m[6] = yz - (cos * yz) + (sin * x);
+			m[7] = 0;
+			m[8] = xz - (cos * xz) + (sin * y);
+			m[9] = yz - (cos * yz) - (sin * x);
+			m[10] = zz + (cos * (1f - zz));
+			m[11] = 0;
+			m[12] = 0;
+			m[13] = 0;
+			m[14] = 0;
+			m[15] = 1;
+
+			Console.WriteLine(FormattableString.Invariant($"Rotate by: mat4(\nvec4({m[0 + 0 * 4]}, {m[1 + 0 * 4]}, {m[2 + 0 * 4]}, {m[3 + 0 * 4]}),\nvec4({m[0 + 1 * 4]}, {m[1 + 1 * 4]}, {m[2 + 1 * 4]}, {m[3 + 1 * 4]}),\nvec4({m[0 + 2 * 4]}, {m[1 + 2 * 4]}, {m[2 + 2 * 4]}, {m[3 + 2 * 4]}),\nvec4({m[0 + 3 * 4]}, {m[1 + 3 * 4]}, {m[2 + 3 * 4]}, {m[3 + 3 * 4]})\n)"));
+
 			// Load the engine version as early as possible so it can be written to exception logs
 			try
 			{
