@@ -180,11 +180,11 @@ namespace OpenRA.Graphics
 
 
 
-			float x = 0;
-			float y = 1;
+			float x = 1;
+			float y = 0;
 			float z = 0;
 
-			var cameraAngle = MathF.PI / 180f * 45f;
+			var cameraAngle = MathF.PI / 180f * -Game.RunTime / 25 / 100;
 
 			float sin = MathF.Sin(cameraAngle);
 			float cos = MathF.Cos(cameraAngle);
@@ -219,8 +219,7 @@ namespace OpenRA.Graphics
 
 			var matrix = Util.MatrixMultiply(perspective, rotation);
 
-
-			shader.SetMatrix("Perspective", rotation);
+			shader.SetMatrix("Perspective", matrix);
 			shader.PrepareRender();
 			renderer.DrawBatch(buffer, start, length, type);
 			renderer.Context.SetBlendMode(BlendMode.None);
