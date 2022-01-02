@@ -230,6 +230,13 @@ namespace OpenRA.Graphics
 			//   extend beyond the top of bottom edges of the screen may be pushed outside [-1, 1] and
 			//   culled by the GPU. We avoid this by forcing everything into the z = 0 plane.
 			var depth = depthMargin != 0f ? 2f / (downscale * (sheetSize.Height + depthMargin)) : 0;
+			shader.SetMatrix("Perspective", new float[]
+			{
+1, 0, 0, 0,
+0, 0.9969173f, 0.0784591f, 0,
+0, -0.0784591f, 0.9969173f, 0,
+0, 0, 0, 1
+			});
 			shader.SetVec("DepthTextureScale", 128 * depth);
 			shader.SetVec("Scroll", scroll.X, scroll.Y, depthMargin != 0f ? scroll.Y : 0);
 			shader.SetVec("r1", width, height, -depth);

@@ -2,6 +2,7 @@
 
 uniform vec3 Scroll;
 uniform vec3 r1, r2;
+uniform mat4 Perspective;
 
 #if __VERSION__ == 120
 attribute vec4 aVertexPosition;
@@ -120,12 +121,7 @@ void main()
 		(
 			vec4(aVertexPosition.xyz - Scroll, 1)
 			*
-			 mat4(
-vec4(1, 0, 0, 0),
-vec4(0, 0.9969173, 0.0784591, 0),
-vec4(0, -0.0784591, 0.9969173, 0),
-vec4(0, 0, 0, 1)
-)
+			 Perspective
 		).xyz * r1 + r2
 		,
 		1
