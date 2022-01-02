@@ -178,6 +178,28 @@ namespace OpenRA.Graphics
 
 			renderer.Context.SetBlendMode(blendMode);
 
+
+
+			float x = 0;
+			float y = 1;
+			float z = 0;
+
+			var cameraAngle = MathF.PI / 180f * 45f;
+
+			float sin = MathF.Sin(cameraAngle);
+			float cos = MathF.Cos(cameraAngle);
+			float xy = x * y;
+			float xz = x * z;
+			float yz = y * z;
+
+			var rotation = new float[]
+			{
+				x + (cos * (1f - x)), xy - (cos * xy) + (sin * z), xz - (cos * xz) - (sin * y), 0,
+				xy - (cos * xy) - (sin * z), y + (cos * (1f - y)), yz - (cos * yz) + (sin * x), 0,
+				xz - (cos * xz) + (sin * y), yz - (cos * yz) - (sin * x), z + (cos * (1f - z)), 0,
+				0, 0, 0, 1,
+			};
+
 			var zNear = 0.5f; // 100f ? 50f ? ... ???
 			var fov = MathF.PI / 180f * 60f;
 			var aspect = 1f;
@@ -187,16 +209,18 @@ namespace OpenRA.Graphics
 			var bottom = -range;
 			var top = range;
 
-
-
-
-			shader.SetMatrix("Perspective", new float[]
+			var perspective = new float[]
 			{
 				2 * zNear / (right - left), 0, 0, 0,
 				0, 2 * zNear / (top - bottom), 0, 0,
 				0, 0, -1, -1,
 				0, 0, -2 * zNear, 1,
-			});
+			};
+
+			var matrix = Util.MatrixMultiply(perspective, rotation);
+
+
+			shader.SetMatrix("Perspective", rotation);
 			shader.PrepareRender();
 			renderer.DrawBatch(buffer, start, length, type);
 			renderer.Context.SetBlendMode(BlendMode.None);
