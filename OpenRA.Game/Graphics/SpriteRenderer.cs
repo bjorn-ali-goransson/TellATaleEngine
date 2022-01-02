@@ -177,9 +177,36 @@ namespace OpenRA.Graphics
 			}
 
 			renderer.Context.SetBlendMode(blendMode);
+
+			var zNear = 0.5f; // 100f ? 50f ? ... ???
+			var fov = MathF.PI / 180f * 60f;
+			var aspect = 1f;
+			var range = MathF.Tan(fov / 2f) * zNear;
+			var left = -range * aspect;
+			var right = range * aspect;
+			var bottom = -range;
+			var top = range;
+
+
+
+
+			shader.SetMatrix("Perspective", new float[]
+			{
+				2 * zNear / (right - left), 0, 0, 0,
+				0, 2 * zNear / (top - bottom), 0, 0,
+				0, 0, -1, -1,
+				0, 0, -2 * zNear, 1,
+			});
 			shader.PrepareRender();
 			renderer.DrawBatch(buffer, start, length, type);
 			renderer.Context.SetBlendMode(BlendMode.None);
+			shader.SetMatrix("Perspective", new float[]
+			{
+				1, 0, 0, 0,
+				0, 1, 0, 0,
+				0, 0, 1, 0,
+				0, 0, 0, 1,
+			});
 		}
 
 		// PERF: methods that throw won't be inlined by the JIT, so extract a static helper for use on hot paths
@@ -230,12 +257,13 @@ namespace OpenRA.Graphics
 			//   extend beyond the top of bottom edges of the screen may be pushed outside [-1, 1] and
 			//   culled by the GPU. We avoid this by forcing everything into the z = 0 plane.
 			var depth = depthMargin != 0f ? 2f / (downscale * (sheetSize.Height + depthMargin)) : 0;
+
 			shader.SetMatrix("Perspective", new float[]
 			{
-1, 0, 0, 0,
-0, 0.9969173f, 0.0784591f, 0,
-0, -0.0784591f, 0.9969173f, 0,
-0, 0, 0, 1
+				1, 0, 0, 0,
+				0, 1, 0, 0,
+				0, 0, 1, 0,
+				0, 0, 0, 1,
 			});
 			shader.SetVec("DepthTextureScale", 128 * depth);
 			shader.SetVec("Scroll", scroll.X, scroll.Y, depthMargin != 0f ? scroll.Y : 0);
