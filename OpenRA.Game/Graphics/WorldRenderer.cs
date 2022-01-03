@@ -279,8 +279,8 @@ namespace OpenRA.Graphics
 			if (enableDepthBuffer)
 				Game.Renderer.ClearDepthBuffer();
 
-			foreach (var a in World.ActorsWithTrait<IRenderShroud>())
-				a.Trait.RenderShroud(this);
+			//foreach (var a in World.ActorsWithTrait<IRenderShroud>())
+			//	a.Trait.RenderShroud(this);
 
 			if (enableDepthBuffer)
 				Game.Renderer.Context.DisableDepthBuffer();
