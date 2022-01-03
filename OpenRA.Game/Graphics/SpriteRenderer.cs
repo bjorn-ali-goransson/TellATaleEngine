@@ -180,11 +180,11 @@ namespace OpenRA.Graphics
 
 
 
-			float x = 1;
+			float x = 0;
 			float y = 0;
-			float z = 0;
+			float z = 1;
 
-			var cameraAngle = MathF.PI / 180f * -Game.RunTime / 25 / 100;
+			var cameraAngle = MathF.PI / 180f * -Game.RunTime / 25 / 10;
 
 			float sin = MathF.Sin(cameraAngle);
 			float cos = MathF.Cos(cameraAngle);
@@ -201,7 +201,7 @@ namespace OpenRA.Graphics
 			};
 
 			var zNear = 0.5f; // 100f ? 50f ? ... ???
-			var fov = MathF.PI / 180f * 60f;
+			var fov = MathF.PI / 180f * 90f;
 			var aspect = 1f;
 			var range = MathF.Tan(fov / 2f) * zNear;
 			var left = -range * aspect;
