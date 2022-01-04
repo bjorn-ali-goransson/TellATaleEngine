@@ -119,10 +119,14 @@ void main()
 {
 	gl_Position = vec4(
 		(
-			vec4(aVertexPosition.xyz - Scroll, 1)
+			vec4(
+				(aVertexPosition.xyz - Scroll) * r1
+				,
+				1
+			)
 			*
-			 Perspective
-		).xyz * r1 + r2
+			Perspective
+		).xyz + r2
 		,
 		1
 	);
