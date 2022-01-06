@@ -120,13 +120,15 @@ void main()
 	gl_Position = vec4(
 		(
 			vec4(
-				(aVertexPosition.xyz - Scroll) * r1
+				(aVertexPosition.xyz - Scroll)
 				,
 				1
 			)
 			*
 			Perspective
-		).xyz + r2
+		).xyz
+
+		+ r2 // normalization (by addition) of camera values
 		,
 		1
 	);

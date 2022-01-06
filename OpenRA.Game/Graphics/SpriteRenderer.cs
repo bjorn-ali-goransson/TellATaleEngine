@@ -180,11 +180,11 @@ namespace OpenRA.Graphics
 
 
 
-			float x = 0;
+			float x = 1;
 			float y = 0;
-			float z = 1;
+			float z = 0;
 
-			var cameraAngle = MathF.PI / 180f * -Game.RunTime / 25 / 10;
+			var cameraAngle = MathF.PI / 180f * Game.RunTime / 25f / 100f;
 
 			float sin = MathF.Sin(cameraAngle);
 			float cos = MathF.Cos(cameraAngle);
@@ -201,35 +201,35 @@ namespace OpenRA.Graphics
 			};
 
 			var zNear = 0.5f; // 100f ? 50f ? ... ???
-			var fov = MathF.PI / 180f * 90f;
+			var fov = MathF.PI / 180f * 40f;
 			var aspect = 1f;
 			var range = MathF.Tan(fov / 2f) * zNear;
 			var left = -range * aspect;
 			var right = range * aspect;
 			var bottom = -range;
 			var top = range;
+			
+			//var perspective = new float[]
+			//{
+			//	2 * zNear / (right - left), 0, 0, 0,
+			//	0, 2 * zNear / (top - bottom), 0, 0,
+			//	0, 0, -1, -1,
+			//	0, 0, -2 * zNear, 1,
+			//};
 
-			var perspective = new float[]
-			{
-				2 * zNear / (right - left), 0, 0, 0,
-				0, 2 * zNear / (top - bottom), 0, 0,
-				0, 0, -1, -1,
-				0, 0, -2 * zNear, 1,
-			};
+			//var matrix = Util.MatrixMultiply(rotation, perspective);
 
-			var matrix = Util.MatrixMultiply(perspective, rotation);
-
-			shader.SetMatrix("Perspective", matrix);
+			//shader.SetMatrix("Perspective", perspective);
 			shader.PrepareRender();
 			renderer.DrawBatch(buffer, start, length, type);
 			renderer.Context.SetBlendMode(BlendMode.None);
-			shader.SetMatrix("Perspective", new float[]
-			{
-				1, 0, 0, 0,
-				0, 1, 0, 0,
-				0, 0, 1, 0,
-				0, 0, 0, 1,
-			});
+			//shader.SetMatrix("Perspective", new float[]
+			//{
+			//	1, 0, 0, 0,
+			//	0, 1, 0, 0,
+			//	0, 0, 1, 0,
+			//	0, 0, 0, 1,
+			//});
 		}
 
 		// PERF: methods that throw won't be inlined by the JIT, so extract a static helper for use on hot paths
@@ -281,13 +281,7 @@ namespace OpenRA.Graphics
 			//   culled by the GPU. We avoid this by forcing everything into the z = 0 plane.
 			var depth = depthMargin != 0f ? 2f / (downscale * (sheetSize.Height + depthMargin)) : 0;
 
-			shader.SetMatrix("Perspective", new float[]
-			{
-				1, 0, 0, 0,
-				0, 1, 0, 0,
-				0, 0, 1, 0,
-				0, 0, 0, 1,
-			});
+			shader.SetMatrix("Perspective", Util.ScaleMatrix(width, height, -depth));
 			shader.SetVec("DepthTextureScale", 128 * depth);
 			shader.SetVec("Scroll", scroll.X, scroll.Y, depthMargin != 0f ? scroll.Y : 0);
 			shader.SetVec("r1", width, height, -depth);
