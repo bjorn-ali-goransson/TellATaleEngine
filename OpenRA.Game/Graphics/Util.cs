@@ -234,6 +234,15 @@ namespace OpenRA.Graphics
 			return mtx;
 		}
 
+		public static float[] MyTranslationMatrix(float x, float y, float z)
+		{
+			var mtx = IdentityMatrix();
+			mtx[3] = x;
+			mtx[7] = y;
+			mtx[11] = z;
+			return mtx;
+		}
+
 		public static float[] MatrixMultiply(float[] lhs, float[] rhs)
 		{
 			var mtx = new float[16];
