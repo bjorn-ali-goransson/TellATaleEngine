@@ -281,7 +281,31 @@ namespace OpenRA.Graphics
 			//   culled by the GPU. We avoid this by forcing everything into the z = 0 plane.
 			var depth = depthMargin != 0f ? 2f / (downscale * (sheetSize.Height + depthMargin)) : 0;
 
-			shader.SetMatrix("Perspective", Util.ScaleMatrix(width, height, -depth));
+
+			var zNear = 0.5f; // 100f ? 50f ? ... ???
+			var fov = MathF.PI / 180f * 40f;
+			var aspect = 1f;
+			var range = MathF.Tan(fov / 2f) * zNear;
+			var left = -range * aspect;
+			var right = range * aspect;
+			var bottom = -range;
+			var top = range;
+
+			var perspective = new float[]
+			{
+				2 * zNear / (right - left), 0, 0, 0,
+				0, 2 * zNear / (top - bottom), 0, 0,
+				0, 0, -1, -1,
+				0, 0, -2 * zNear, 1,
+			};
+
+			var scale = Util.ScaleMatrix(width, height, -depth);
+
+			var translate = Util.TranslationMatrix(-1, -1, depthMargin != 0f ? 1 : 0);
+
+			// ^^^ broken!?
+
+			shader.SetMatrix("Perspective", Util.MatrixMultiply(scale, translate)); // Util.MatrixMultiply(Util.MatrixMultiply(scale, translate), perspective));
 			shader.SetVec("DepthTextureScale", 128 * depth);
 			shader.SetVec("Scroll", scroll.X, scroll.Y, depthMargin != 0f ? scroll.Y : 0);
 			shader.SetVec("r1", width, height, -depth);
