@@ -1,7 +1,5 @@
 #version {VERSION}
 
-uniform vec3 Scroll;
-uniform vec3 r1, r2;
 uniform mat4 Perspective;
 
 #if __VERSION__ == 120

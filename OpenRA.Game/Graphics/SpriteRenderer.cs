@@ -301,11 +301,11 @@ namespace OpenRA.Graphics
 
 			var scale = Util.ScaleMatrix(width, height, -depth);
 
+			var scrollTransform = Util.MyTranslationMatrix(-scroll.X, -scroll.Y, depthMargin != 0f ? -scroll.Y : 0);
 			var translate = Util.MyTranslationMatrix(-1, -1, depthMargin != 0f ? 1 : 0);
 
-			shader.SetMatrix("Perspective", Util.MatrixMultiply(scale, translate)); // Util.MatrixMultiply(Util.MatrixMultiply(scale, translate), perspective));
+			shader.SetMatrix("Perspective", Util.MatrixMultiply(scrollTransform, Util.MatrixMultiply(scale, translate))); // Util.MatrixMultiply(Util.MatrixMultiply(scale, translate), perspective));
 			shader.SetVec("DepthTextureScale", 128 * depth);
-			shader.SetVec("Scroll", scroll.X, scroll.Y, depthMargin != 0f ? scroll.Y : 0);
 		}
 
 		public void SetDepthPreview(bool enabled, float contrast, float offset)
