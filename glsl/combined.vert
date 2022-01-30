@@ -115,21 +115,7 @@ vec4 SelectPalettedFraction(float x)
 
 void main()
 {
-	gl_Position = vec4(
-		(
-			vec4(
-				(aVertexPosition.xyz - Scroll)
-				,
-				1
-			)
-			*
-			Perspective
-		).xyz
-
-		+ r2 // normalization (by addition) of camera values
-		,
-		1
-	);
+	gl_Position = aVertexPosition * Perspective;
 	vTexCoord = aVertexTexCoord;
 	vTexMetadata = aVertexTexMetadata;
 
