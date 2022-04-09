@@ -257,6 +257,18 @@ namespace OpenRA.Graphics
 			return mtx;
 		}
 
+		public static float[] MyMatrixMultiply(params float[][] matrixes)
+		{
+			var result = matrixes[0];
+
+			for (var i = 1; i < matrixes.Length; i++)
+            {
+				result = MatrixMultiply(result, matrixes[i]);
+            }
+
+			return result;
+		}
+
 		public static float[] MatrixVectorMultiply(float[] mtx, float[] vec)
 		{
 			var ret = new float[4];
@@ -394,6 +406,24 @@ namespace OpenRA.Graphics
 				mtx[i] *= 1 / det;
 
 			return mtx;
+		}
+
+		public static float[] MyRotationMatrix(int x, int y, int z, float angle)
+		{
+			float sin = MathF.Sin(angle);
+			float cos = MathF.Cos(angle);
+
+			float xy = x * y;
+			float xz = x * z;
+			float yz = y * z;
+
+			return new float[]
+			{
+				x + (cos * (1f - x)), xy - (cos * xy) + (sin * z), xz - (cos * xz) - (sin * y), 0,
+				xy - (cos * xy) - (sin * z), y + (cos * (1f - y)), yz - (cos * yz) + (sin * x), 0,
+				xz - (cos * xz) + (sin * y), yz - (cos * yz) - (sin * x), z + (cos * (1f - z)), 0,
+				0, 0, 0, 1,
+			};
 		}
 
 		public static float[] MakeFloatMatrix(Int32Matrix4x4 imtx)
