@@ -178,58 +178,9 @@ namespace OpenRA.Graphics
 
 			renderer.Context.SetBlendMode(blendMode);
 
-
-
-			float x = 1;
-			float y = 0;
-			float z = 0;
-
-			var cameraAngle = MathF.PI / 180f * Game.RunTime / 25f / 100f;
-
-			float sin = MathF.Sin(cameraAngle);
-			float cos = MathF.Cos(cameraAngle);
-			float xy = x * y;
-			float xz = x * z;
-			float yz = y * z;
-
-			var rotation = new float[]
-			{
-				x + (cos * (1f - x)), xy - (cos * xy) + (sin * z), xz - (cos * xz) - (sin * y), 0,
-				xy - (cos * xy) - (sin * z), y + (cos * (1f - y)), yz - (cos * yz) + (sin * x), 0,
-				xz - (cos * xz) + (sin * y), yz - (cos * yz) - (sin * x), z + (cos * (1f - z)), 0,
-				0, 0, 0, 1,
-			};
-
-			var zNear = 0.5f; // 100f ? 50f ? ... ???
-			var fov = MathF.PI / 180f * 40f;
-			var aspect = 1f;
-			var range = MathF.Tan(fov / 2f) * zNear;
-			var left = -range * aspect;
-			var right = range * aspect;
-			var bottom = -range;
-			var top = range;
-			
-			//var perspective = new float[]
-			//{
-			//	2 * zNear / (right - left), 0, 0, 0,
-			//	0, 2 * zNear / (top - bottom), 0, 0,
-			//	0, 0, -1, -1,
-			//	0, 0, -2 * zNear, 1,
-			//};
-
-			//var matrix = Util.MatrixMultiply(rotation, perspective);
-
-			//shader.SetMatrix("Perspective", perspective);
 			shader.PrepareRender();
 			renderer.DrawBatch(buffer, start, length, type);
 			renderer.Context.SetBlendMode(BlendMode.None);
-			//shader.SetMatrix("Perspective", new float[]
-			//{
-			//	1, 0, 0, 0,
-			//	0, 1, 0, 0,
-			//	0, 0, 1, 0,
-			//	0, 0, 0, 1,
-			//});
 		}
 
 		// PERF: methods that throw won't be inlined by the JIT, so extract a static helper for use on hot paths
@@ -257,6 +208,8 @@ namespace OpenRA.Graphics
 			shader.SetTexture("ColorShifts", colorShifts);
 		}
 
+		static DateTime Start = DateTime.Now;
+
 		public void SetViewportParams(Size sheetSize, int downscale, float depthMargin, int2 scroll)
 		{
 			// Calculate the scale (r1) and offset (r2) that convert from OpenRA viewport pixels
@@ -282,7 +235,7 @@ namespace OpenRA.Graphics
 			var depth = depthMargin != 0f ? 2f / (downscale * (sheetSize.Height + depthMargin)) : 0;
 
 
-			var zNear = 0.5f; // 100f ? 50f ? ... ???
+			var zNear = 10f; // 100f ? 50f ? ... ???
 			var fov = MathF.PI / 180f * 40f;
 			var aspect = 1f;
 			var range = MathF.Tan(fov / 2f) * zNear;
@@ -304,7 +257,9 @@ namespace OpenRA.Graphics
 			var scrollTransform = Util.MyTranslationMatrix(-scroll.X, -scroll.Y, depthMargin != 0f ? -scroll.Y : 0);
 			var translate = Util.MyTranslationMatrix(-1, -1, depthMargin != 0f ? 1 : 0);
 
-			shader.SetMatrix("Perspective", Util.MatrixMultiply(scrollTransform, Util.MatrixMultiply(scale, translate))); // Util.MatrixMultiply(Util.MatrixMultiply(scale, translate), perspective));
+			var rotation = Util.MyRotationMatrix(1, 0, 0, MathF.PI / 180f * 45f);
+
+			shader.SetMatrix("Perspective", Util.MyMatrixMultiply(scrollTransform, scale, translate, rotation)); // Util.MatrixMultiply(Util.MatrixMultiply(scale, translate), perspective
 			shader.SetVec("DepthTextureScale", 128 * depth);
 		}
 
