@@ -251,7 +251,7 @@ namespace OpenRA
 
 			worldBuffer.Bind();
 
-			if (lastWorldViewport != worldViewport)
+			//if (lastWorldViewport != worldViewport)
 			{
 				WorldSpriteRenderer.SetViewportParams(worldSheet.Size, worldDownscaleFactor, depthMargin, worldViewport.Location);
 				WorldModelRenderer.SetViewportParams(worldSheet.Size, worldViewport.Location);
