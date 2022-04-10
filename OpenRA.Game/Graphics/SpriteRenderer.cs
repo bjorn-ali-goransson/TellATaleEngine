@@ -234,20 +234,15 @@ namespace OpenRA.Graphics
 			//   culled by the GPU. We avoid this by forcing everything into the z = 0 plane.
 			var depth = depthMargin != 0f ? 2f / (downscale * (sheetSize.Height + depthMargin)) : 0;
 
-
-			var perspective = Util.MyPerspective(1, 40);
-
-			Console.WriteLine($"Depth: {depth}");
-
-			var scale = Util.ScaleMatrix(width, height, -depth);
-
 			var scrollTransform = Util.MyTranslationMatrix(-scroll.X, -scroll.Y, depthMargin != 0f ? -scroll.Y : 0);
+			var scale = Util.ScaleMatrix(width, height, -depth);
 			var translate = Util.MyTranslationMatrix(-1, -1, depthMargin != 0f ? 1 : 0);
-
-			var rotation = Util.MyRotationMatrix(1, 0, 0, MathF.PI / 180f * angle);
 
 			if(angle != 0)
 			{
+				var rotation = Util.MyRotationMatrix(1, 0, 0, MathF.PI / 180f * angle);
+				var perspective = Util.MyPerspective(1, 40);
+
 				shader.SetMatrix("Perspective", Util.MyMatrixMultiply(scrollTransform, scale, translate, rotation, perspective));
 			}
 			else
