@@ -253,7 +253,7 @@ namespace OpenRA
 
 			if (lastWorldViewport != worldViewport)
 			{
-				WorldSpriteRenderer.SetViewportParams(worldSheet.Size, worldDownscaleFactor, depthMargin, worldViewport.Location, 45);
+				WorldSpriteRenderer.SetViewportParams(worldSheet.Size, worldDownscaleFactor, depthMargin, worldViewport.Location, -45);
 				WorldModelRenderer.SetViewportParams(worldSheet.Size, worldViewport.Location);
 
 				lastWorldViewport = worldViewport;

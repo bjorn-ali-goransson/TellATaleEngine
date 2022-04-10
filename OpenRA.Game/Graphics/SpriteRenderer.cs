@@ -235,7 +235,7 @@ namespace OpenRA.Graphics
 			var depth = depthMargin != 0f ? 2f / (downscale * (sheetSize.Height + depthMargin)) : 0;
 
 
-			var zNear = 10f; // 100f ? 50f ? ... ???
+			var zNear = 1f; // 100f ? 50f ? ... ???
 			var fov = MathF.PI / 180f * 40f;
 			var aspect = 1f;
 			var range = MathF.Tan(fov / 2f) * zNear;
