@@ -252,14 +252,24 @@ namespace OpenRA.Graphics
 				0, 0, -2 * zNear, 1,
 			};
 
+			Console.WriteLine($"Depth: {depth}");
+
 			var scale = Util.ScaleMatrix(width, height, -depth);
 
 			var scrollTransform = Util.MyTranslationMatrix(-scroll.X, -scroll.Y, depthMargin != 0f ? -scroll.Y : 0);
 			var translate = Util.MyTranslationMatrix(-1, -1, depthMargin != 0f ? 1 : 0);
 
-			var rotation = Util.MyRotationMatrix(0, 0, 1, MathF.PI / 180f * angle); // This can not be a fixed value as its initial value will be used to render UI things and will skew everything. It needs to be a slowly increasing value for it not to break. Investigate...
+			var rotation = Util.MyRotationMatrix(1, 0, 0, MathF.PI / 180f * angle);
 
-			shader.SetMatrix("Perspective", Util.MyMatrixMultiply(scrollTransform, scale, translate, rotation)); // Util.MatrixMultiply(Util.MatrixMultiply(scale, translate), perspective
+			if(angle != 0)
+			{
+				shader.SetMatrix("Perspective", Util.MyMatrixMultiply(scrollTransform, scale, translate, rotation, perspective));
+			}
+			else
+            {
+				shader.SetMatrix("Perspective", Util.MyMatrixMultiply(scrollTransform, scale, translate));
+            }
+
 			shader.SetVec("DepthTextureScale", 128 * depth);
 		}
 
