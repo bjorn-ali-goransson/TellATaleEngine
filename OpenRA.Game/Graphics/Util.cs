@@ -408,6 +408,26 @@ namespace OpenRA.Graphics
 			return mtx;
 		}
 
+		public static float[] MyPerspective(float zNear, float fov)
+		{
+			fov = MathF.PI / 180f * fov;
+
+			var aspect = 1f;
+			var range = MathF.Tan(fov / 2f) * zNear;
+			var left = -range * aspect;
+			var right = range * aspect;
+			var bottom = -range;
+			var top = range;
+
+			return new float[]
+			{
+				2 * zNear / (right - left), 0, 0, 0,
+				0, 2 * zNear / (top - bottom), 0, 0,
+				0, 0, -1, -1,
+				0, 0, -2 * zNear, 1,
+			};
+		}
+
 		public static float[] MyRotationMatrix(int x, int y, int z, float angle)
 		{
 			float sin = MathF.Sin(angle);

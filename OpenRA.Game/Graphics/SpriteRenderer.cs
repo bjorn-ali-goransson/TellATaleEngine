@@ -235,22 +235,7 @@ namespace OpenRA.Graphics
 			var depth = depthMargin != 0f ? 2f / (downscale * (sheetSize.Height + depthMargin)) : 0;
 
 
-			var zNear = 1f; // 100f ? 50f ? ... ???
-			var fov = MathF.PI / 180f * 40f;
-			var aspect = 1f;
-			var range = MathF.Tan(fov / 2f) * zNear;
-			var left = -range * aspect;
-			var right = range * aspect;
-			var bottom = -range;
-			var top = range;
-
-			var perspective = new float[]
-			{
-				2 * zNear / (right - left), 0, 0, 0,
-				0, 2 * zNear / (top - bottom), 0, 0,
-				0, 0, -1, -1,
-				0, 0, -2 * zNear, 1,
-			};
+			var perspective = Util.MyPerspective(1, 40);
 
 			Console.WriteLine($"Depth: {depth}");
 
