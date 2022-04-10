@@ -257,11 +257,7 @@ namespace OpenRA.Graphics
 			var scrollTransform = Util.MyTranslationMatrix(-scroll.X, -scroll.Y, depthMargin != 0f ? -scroll.Y : 0);
 			var translate = Util.MyTranslationMatrix(-1, -1, depthMargin != 0f ? 1 : 0);
 
-			var seconds = (float)(DateTime.Now - Start).TotalMilliseconds / 1000f;
-
-			Console.WriteLine($"value: {seconds}");
-			
-			var rotation = Util.MyRotationMatrix(0, 0, 1, MathF.PI / 180f * -seconds); // This can not be a fixed value as its initial value will be used to render UI things and will skew everything. It needs to be a slowly increasing value for it not to break. Investigate...
+			var rotation = Util.MyRotationMatrix(0, 0, 1, MathF.PI / 180f * -1); // This can not be a fixed value as its initial value will be used to render UI things and will skew everything. It needs to be a slowly increasing value for it not to break. Investigate...
 
 			shader.SetMatrix("Perspective", Util.MyMatrixMultiply(scrollTransform, scale, translate, rotation)); // Util.MatrixMultiply(Util.MatrixMultiply(scale, translate), perspective
 			shader.SetVec("DepthTextureScale", 128 * depth);
