@@ -1,147 +1,147 @@
 MCV.Husk:
     Inherits: ^Husk
     Tooltip:
-    	Name: Mobile Construction Vehicle (Destroyed)
+        Name: Mobile Construction Vehicle (Destroyed)
     TransformOnCapture:
-    	IntoActor: mcv
+        IntoActor: mcv
     RenderSprites:
-    	Image: mcv.destroyed
+        Image: mcv.destroyed
 
 HARV.Husk:
     Inherits: ^Husk
     Tooltip:
-    	Name: Harvester (Destroyed)
+        Name: Harvester (Destroyed)
     TransformOnCapture:
-    	IntoActor: harv
+        IntoActor: harv
     RenderSprites:
-    	Image: harv.destroyed
+        Image: harv.destroyed
 
 APC.Husk:
     Inherits: ^Husk
     Tooltip:
-    	Name: APC (Destroyed)
+        Name: APC (Destroyed)
     TransformOnCapture:
-    	IntoActor: apc
+        IntoActor: apc
     RenderSprites:
-    	Image: apc.destroyed
+        Image: apc.destroyed
 
 FTNK.Husk:
     Inherits: ^Husk
     Tooltip:
-    	Name: Flame Tank (Destroyed)
+        Name: Flame Tank (Destroyed)
     TransformOnCapture:
-    	IntoActor: ftnk
+        IntoActor: ftnk
     RenderSprites:
-    	Image: ftnk.destroyed
+        Image: ftnk.destroyed
 
 ARTY.Husk:
     Inherits: ^LightHusk
     Tooltip:
-    	Name: Artillery (Destroyed)
+        Name: Artillery (Destroyed)
     TransformOnCapture:
-    	IntoActor: arty
+        IntoActor: arty
     RenderSprites:
-    	Image: arty.destroyed
+        Image: arty.destroyed
 
 BGGY.Husk:
     Inherits: ^LightHusk
     Tooltip:
-    	Name: Nod Buggy (Destroyed)
+        Name: Nod Buggy (Destroyed)
     TransformOnCapture:
-    	IntoActor: bggy
+        IntoActor: bggy
     RenderSprites:
-    	Image: bggy.destroyed
+        Image: bggy.destroyed
 
 BIKE.Husk:
     Inherits: ^LightHusk
     Tooltip:
-    	Name: Recon Bike (Destroyed)
+        Name: Recon Bike (Destroyed)
     TransformOnCapture:
-    	IntoActor: bike
+        IntoActor: bike
     RenderSprites:
-    	Image: bike.destroyed
+        Image: bike.destroyed
 
 JEEP.Husk:
     Inherits: ^LightHusk
     Tooltip:
-    	Name: Hum-Vee (Destroyed)
+        Name: Hum-Vee (Destroyed)
     TransformOnCapture:
-    	IntoActor: jeep
+        IntoActor: jeep
     RenderSprites:
-    	Image: jeep.destroyed
+        Image: jeep.destroyed
 
 LTNK.Husk:
     Inherits: ^Husk
     Tooltip:
-    	Name: Light Tank (Destroyed)
+        Name: Light Tank (Destroyed)
     ThrowsParticle@turret:
-    	Anim: turret
+        Anim: turret
     TransformOnCapture:
-    	IntoActor: ltnk
+        IntoActor: ltnk
     RenderSprites:
-    	Image: ltnk.destroyed
+        Image: ltnk.destroyed
 
 MTNK.Husk:
     Inherits: ^Husk
     Tooltip:
-    	Name: Medium Tank (Destroyed)
+        Name: Medium Tank (Destroyed)
     ThrowsParticle@turret:
-    	Anim: turret
+        Anim: turret
     TransformOnCapture:
-    	IntoActor: mtnk
+        IntoActor: mtnk
     RenderSprites:
-    	Image: mtnk.destroyed
+        Image: mtnk.destroyed
 
 HTNK.Husk:
     Inherits: ^Husk
     Tooltip:
-    	Name: Mammoth Tank (Destroyed)
+        Name: Mammoth Tank (Destroyed)
     ThrowsParticle@turret:
-    	Anim: turret
+        Anim: turret
     TransformOnCapture:
-    	IntoActor: htnk
+        IntoActor: htnk
     RenderSprites:
-    	Image: htnk.destroyed
+        Image: htnk.destroyed
 
 MSAM.Husk:
     Inherits: ^LightHusk
     Tooltip:
-    	Name: Rocket Launcher (Destroyed)
+        Name: Rocket Launcher (Destroyed)
     ThrowsParticle@turret:
-    	Anim: turret
+        Anim: turret
     TransformOnCapture:
-    	IntoActor: msam
+        IntoActor: msam
     RenderSprites:
-    	Image: msam.destroyed
+        Image: msam.destroyed
 
 MLRS.Husk:
     Inherits: ^LightHusk
     Tooltip:
-    	Name: Mobile S.A.M. (Destroyed)
+        Name: Mobile S.A.M. (Destroyed)
     ThrowsParticle@turret:
-    	Anim: turret
+        Anim: turret
     TransformOnCapture:
-    	IntoActor: mlrs
+        IntoActor: mlrs
     RenderSprites:
-    	Image: mlrs.destroyed
+        Image: mlrs.destroyed
 
 STNK.Husk:
     Inherits: ^Husk
     Tooltip:
-    	Name: Stealth Tank (Destroyed)
+        Name: Stealth Tank (Destroyed)
     TransformOnCapture:
-    	IntoActor: stnk
+        IntoActor: stnk
     RenderSprites:
-    	Image: stnk.destroyed
+        Image: stnk.destroyed
     Explodes:
-    	Weapon: UnitExplodeStealthTank
-    	EmptyWeapon: UnitExplodeStealthTank
+        Weapon: UnitExplodeStealthTank
+        EmptyWeapon: UnitExplodeStealthTank
 
 TRUCK.Husk:
     Inherits: ^LightHusk
     Tooltip:
-    	Name: Supply Truck (Destroyed)
+        Name: Supply Truck (Destroyed)
     TransformOnCapture:
-    	IntoActor: truck
+        IntoActor: truck
     RenderSprites:
-    	Image: truck.destroyed
+        Image: truck.destroyed

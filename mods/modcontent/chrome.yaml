@@ -72,7 +72,7 @@ progressbar-thumb:
 panel-rule:
     Inherits: ^Chrome
     Regions:
-    	border-t: 66, 512, 62, 2
+        border-t: 66, 512, 62, 2
 
 background:
     Inherits: ^Chrome
@@ -82,10 +82,10 @@ background:
 modcontent:
     Inherits: ^Chrome
     Regions:
-    	logo: 0, 577, 280, 128
-    	leftarrow: 390, 512, 20, 64
-    	rightarrow: 411, 512, 20, 64
-    	cdicon: 432, 512, 20, 20
+        logo: 0, 577, 280, 128
+        leftarrow: 390, 512, 20, 64
+        rightarrow: 411, 512, 20, 64
+        cdicon: 432, 512, 20, 20
 
 scrollpanel-bg:
     Inherits: panel-thinborder
@@ -105,7 +105,7 @@ scrollpanel-button-pressed:
 scrollpanel-decorations:
     Inherits: ^Chrome
     Regions:
-    	down: 453, 512, 16, 16
-    	down-pressed: 453, 512, 16, 16
-    	up: 470, 512, 16, 16
-    	up-pressed: 470, 512, 16, 16
+        down: 453, 512, 16, 16
+        down-pressed: 453, 512, 16, 16
+        up: 470, 512, 16, 16
+        up-pressed: 470, 512, 16, 16

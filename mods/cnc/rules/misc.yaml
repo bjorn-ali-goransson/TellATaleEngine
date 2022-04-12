@@ -5,77 +5,77 @@ CRATE.plain:
 CRATE:
     Inherits: ^Crate
     Crate:
-    	Duration: 6000
+        Duration: 6000
     GiveCashCrateAction:
-    	Amount: 1000
-    	SelectionShares: 20
-    	UseCashTick: true
+        Amount: 1000
+        SelectionShares: 20
+        UseCashTick: true
     RevealMapCrateAction:
-    	SelectionShares: 1
-    	Sequence: reveal-map
+        SelectionShares: 1
+        Sequence: reveal-map
     ExplodeCrateAction@fire:
-    	Weapon: Napalm.Crate
-    	SelectionShares: 5
+        Weapon: Napalm.Crate
+        SelectionShares: 5
     GrantExternalConditionCrateAction@cloak:
-    	SelectionShares: 5
-    	Sequence: cloak
-    	Condition: cloak-crate-collected
+        SelectionShares: 5
+        Sequence: cloak
+        Condition: cloak-crate-collected
     GiveMcvCrateAction:
-    	SelectionShares: 0
-    	NoBaseSelectionShares: 50
-    	Units: mcv
+        SelectionShares: 0
+        NoBaseSelectionShares: 50
+        Units: mcv
     ExplodeCrateAction:
-    	Weapon: Atomic
-    	SelectionShares: 1
+        Weapon: Atomic
+        SelectionShares: 1
     GiveUnitCrateAction:
-    	Units: vice
-    	Owner: Creeps
-    	SelectionShares: 10
+        Units: vice
+        Owner: Creeps
+        SelectionShares: 10
     LevelUpCrateAction:
-    	Levels: 4
-    	SelectionShares: 12
+        Levels: 4
+        SelectionShares: 12
 
 WCRATE:
     Inherits: ^Crate
     Tooltip:
-    	Name: Wooden Crate
+        Name: Wooden Crate
     RenderSprites:
-    	Image: wcrate
+        Image: wcrate
 
 SCRATE:
     Inherits: ^Crate
     Tooltip:
-    	Name: Steel Crate
+        Name: Steel Crate
 
 mpspawn:
     Interactable:
     EditorOnlyTooltip:
-    	Name: (multiplayer player starting point)
+        Name: (multiplayer player starting point)
     AlwaysVisible:
     Immobile:
-    	OccupiesSpace: false
+        OccupiesSpace: false
     WithSpriteBody:
     RenderSpritesEditorOnly:
     BodyOrientation:
-    	QuantizedFacings: 1
+        QuantizedFacings: 1
     MapEditorData:
-    	Categories: System
+        Categories: System
     RequiresSpecificOwners:
-    	ValidOwnerNames: Neutral
+        ValidOwnerNames: Neutral
 
 waypoint:
     Interactable:
     EditorOnlyTooltip:
-    	Name: (waypoint for scripted behavior)
+        Name: (waypoint for scripted behavior)
     AlwaysVisible:
     Immobile:
-    	OccupiesSpace: false
+        OccupiesSpace: false
     WithSpriteBody:
     RenderSpritesEditorOnly:
     BodyOrientation:
-    	QuantizedFacings: 1
+        QuantizedFacings: 1
     MapEditorData:
-    	Categories: System
+        Categories: System
 
 fact.colorpicker:
     Inherits: FACT
@@ -83,65 +83,65 @@ fact.colorpicker:
     -MapEditorData:
     -BaseBuilding:
     RenderSprites:
-    	Image: fact
-    	Palette: colorpicker
+        Image: fact
+        Palette: colorpicker
 
 CAMERA:
     Interactable:
     EditorOnlyTooltip:
-    	Name: (reveals area to owner)
+        Name: (reveals area to owner)
     AlwaysVisible:
     WithSpriteBody:
     RenderSpritesEditorOnly:
     BodyOrientation:
-    	QuantizedFacings: 1
+        QuantizedFacings: 1
     Immobile:
-    	OccupiesSpace: false
+        OccupiesSpace: false
     RevealsShroud:
-    	Range: 10c0
-    	Type: CenterPosition
+        Range: 10c0
+        Type: CenterPosition
     MapEditorData:
-    	Categories: System
+        Categories: System
 
 CAMERA.small:
     Interactable:
     EditorOnlyTooltip:
-    	Name: (reveals small area to owner)
+        Name: (reveals small area to owner)
     AlwaysVisible:
     WithSpriteBody:
     RenderSpritesEditorOnly:
-    	Image: camera
+        Image: camera
     BodyOrientation:
-    	QuantizedFacings: 1
+        QuantizedFacings: 1
     Immobile:
-    	OccupiesSpace: false
+        OccupiesSpace: false
     Health:
-    	HP: 100000
+        HP: 100000
     HitShape:
     RevealsShroud:
-    	Range: 6c0
-    	Type: CenterPosition
+        Range: 6c0
+        Type: CenterPosition
     MapEditorData:
-    	Categories: System
+        Categories: System
 
 FLARE:
     Immobile:
-    	OccupiesSpace: false
+        OccupiesSpace: false
     RevealsShroud:
-    	Range: 3c0
-    	Type: CenterPosition
+        Range: 3c0
+        Type: CenterPosition
     RenderSprites:
-    	Image: smokland
-    	Palette: terrain
+        Image: smokland
+        Palette: terrain
     WithSpriteBody:
-    	StartSequence: open
+        StartSequence: open
     HiddenUnderFog:
-    	Type: CenterPosition
+        Type: CenterPosition
     Tooltip:
-    	Name: Flare
-    	ShowOwnerRow: false
+        Name: Flare
+        ShowOwnerRow: false
     BodyOrientation:
-    	QuantizedFacings: 1
+        QuantizedFacings: 1
     MapEditorData:
-    	Categories: System
+        Categories: System
     Interactable:

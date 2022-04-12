@@ -5,10 +5,10 @@ Container@DEBUG_WIDGETS:
     Width: 100
     Height: 55
     Children:
-    	Label@DEBUG_TEXT:
-    		Y: 35
-    		Width: PARENT_RIGHT
-    		Height: 15
-    		Align: Center
-    		Font: Bold
-    		Contrast: true
+        Label@DEBUG_TEXT:
+            Y: 35
+            Width: PARENT_RIGHT
+            Height: 15
+            Align: Center
+            Font: Bold
+            Contrast: true

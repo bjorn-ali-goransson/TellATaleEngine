@@ -5,9 +5,9 @@ Container@TRANSIENTS_PANEL:
     Height: 80
     Logic: IngameTransientNotificationsLogic
     Children:
-    	TextNotificationsDisplay@TRANSIENTS_DISPLAY:
-    		Width: PARENT_RIGHT
-    		Height: PARENT_BOTTOM
-    		RemoveTime: 100
-    		LogLength: 5
-    		HideOverflow: False
+        TextNotificationsDisplay@TRANSIENTS_DISPLAY:
+            Width: PARENT_RIGHT
+            Height: PARENT_BOTTOM
+            RemoveTime: 100
+            LogLength: 5
+            HideOverflow: False

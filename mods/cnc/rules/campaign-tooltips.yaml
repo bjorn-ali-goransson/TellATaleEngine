@@ -1,71 +1,71 @@
 ^Vehicle:
     Tooltip:
-    	GenericVisibility: Enemy
-    	ShowOwnerRow: false
+        GenericVisibility: Enemy
+        ShowOwnerRow: false
 
 ^Tank:
     Tooltip:
-    	GenericVisibility: Enemy
-    	ShowOwnerRow: false
+        GenericVisibility: Enemy
+        ShowOwnerRow: false
 
 ^Helicopter:
     Tooltip:
-    	GenericVisibility: Enemy
-    	ShowOwnerRow: false
+        GenericVisibility: Enemy
+        ShowOwnerRow: false
 
 ^Infantry:
     Tooltip:
-    	GenericVisibility: Enemy
-    	ShowOwnerRow: false
+        GenericVisibility: Enemy
+        ShowOwnerRow: false
 
 ^Plane:
     Tooltip:
-    	GenericVisibility: Enemy
-    	ShowOwnerRow: false
+        GenericVisibility: Enemy
+        ShowOwnerRow: false
 
 ^Ship:
     Tooltip:
-    	GenericVisibility: Enemy
-    	ShowOwnerRow: false
+        GenericVisibility: Enemy
+        ShowOwnerRow: false
 
 ^Building:
     Tooltip:
-    	GenericVisibility: Enemy
-    	ShowOwnerRow: false
+        GenericVisibility: Enemy
+        ShowOwnerRow: false
 
 ^Wall:
     Tooltip:
-    	ShowOwnerRow: false
+        ShowOwnerRow: false
 
 ^CivBuilding:
     Tooltip:
-    	GenericVisibility: Enemy, Neutral
-    	ShowOwnerRow: false
+        GenericVisibility: Enemy, Neutral
+        ShowOwnerRow: false
 
 ^CivBuildingHusk:
     Tooltip:
-    	GenericVisibility: Enemy, Neutral
-    	ShowOwnerRow: false
+        GenericVisibility: Enemy, Neutral
+        ShowOwnerRow: false
 
 ^TechBuilding:
     Tooltip:
-    	GenericVisibility: None
-    	ShowOwnerRow: false
+        GenericVisibility: None
+        ShowOwnerRow: false
 
 ^CommonHuskDefaults:
     Tooltip:
-    	GenericVisibility: Enemy, Ally, Neutral
-    	GenericStancePrefix: false
-    	ShowOwnerRow: false
+        GenericVisibility: Enemy, Ally, Neutral
+        GenericStancePrefix: false
+        ShowOwnerRow: false
 
 ^DINO:
     Tooltip:
-    	ShowOwnerRow: false
+        ShowOwnerRow: false
 
 MISS:
     Tooltip:
-    	GenericVisibility: None
-    	ShowOwnerRow: False
+        GenericVisibility: None
+        ShowOwnerRow: False
     -TooltipDescription@ally:
     -TooltipDescription@other:		
 
@@ -75,21 +75,21 @@ BIO:
 
 ARCO:
     Tooltip:
-    	GenericVisibility: None
-    	ShowOwnerRow: False
+        GenericVisibility: None
+        ShowOwnerRow: False
 
 ARCO.Husk:
     Tooltip:
-    	GenericVisibility: None
+        GenericVisibility: None
 
 V19.Husk:
     Tooltip:
-    	GenericVisibility: None
+        GenericVisibility: None
 
 HOSP.Husk:
     Tooltip:
-    	GenericVisibility: None
+        GenericVisibility: None
 
 BIO.Husk:
     Tooltip:
-    	GenericVisibility: None
+        GenericVisibility: None
