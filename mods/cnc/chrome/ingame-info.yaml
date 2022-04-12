@@ -1,114 +1,114 @@
 Container@GAME_INFO_PANEL:
-	X: (WINDOW_RIGHT - WIDTH) / 2
-	Y: (WINDOW_BOTTOM - HEIGHT) / 2
-	Width: 512
-	Height: 405
-	Logic: GameInfoLogic
-	Visible: False
-	Children:
-		Label@TITLE:
-			Width: PARENT_RIGHT
-			Y: 0 - 17
-			Text: Game Information
-			Align: Center
-			Font: BigBold
-			Contrast: true
-		Container@TAB_CONTAINER_2:
-			Visible: False
-			Children:
-				Button@BUTTON1:
-					Y: 5
-					Width: 140
-					Height: 35
-				Button@BUTTON2:
-					X: 150
-					Y: 5
-					Width: 140
-					Height: 35
-		Container@TAB_CONTAINER_3:
-			Visible: False
-			Children:
-				Button@BUTTON1:
-					Y: 5
-					Width: 140
-					Height: 35
-				Button@BUTTON2:
-					X: 150
-					Y: 5
-					Width: 140
-					Height: 35
-				Button@BUTTON3:
-					X: 300
-					Y: 5
-					Width: 140
-					Height: 35
-		Container@TAB_CONTAINER_4:
-			Visible: False
-			Children:
-				Button@BUTTON1:
-					Y: 5
-					Width: 121
-					Height: 35
-				Button@BUTTON2:
-					X: 131
-					Y: 5
-					Width: 120
-					Height: 35
-				Button@BUTTON3:
-					X: 261
-					Y: 5
-					Width: 120
-					Height: 35
-				Button@BUTTON4:
-					X: 391
-					Y: 5
-					Width: 121
-					Height: 35
-		Container@TAB_CONTAINER_5:
-			Visible: False
-			Children:
-				Button@BUTTON1:
-					Y: 5
-					Width: 99
-					Height: 35
-				Button@BUTTON2:
-					X: 104
-					Y: 5
-					Width: 98
-					Height: 35
-				Button@BUTTON3:
-					X: 207
-					Y: 5
-					Width: 98
-					Height: 35
-				Button@BUTTON4:
-					X: 310
-					Y: 5
-					Width: 98
-					Height: 35
-				Button@BUTTON5:
-					X: 413
-					Y: 5
-					Width: 99
-					Height: 35
-		Background@BACKGROUND:
-			Y: 39
-			Width: PARENT_RIGHT
-			Height: PARENT_BOTTOM
-			Background: panel-black
-			Children:
-				Container@STATS_PANEL:
-				Container@MAP_PANEL:
-					Width: PARENT_RIGHT
-					Height: PARENT_BOTTOM
-				Container@OBJECTIVES_PANEL:
-					Width: PARENT_RIGHT
-				Container@DEBUG_PANEL:
-					Width: PARENT_RIGHT
-					Height: PARENT_BOTTOM
-				Container@CHAT_PANEL:
-					Width: PARENT_RIGHT
-					Height: PARENT_BOTTOM
-				Container@LOBBY_OPTIONS_PANEL:
-					Width: PARENT_RIGHT
-					Height: PARENT_BOTTOM
+    X: (WINDOW_RIGHT - WIDTH) / 2
+    Y: (WINDOW_BOTTOM - HEIGHT) / 2
+    Width: 512
+    Height: 405
+    Logic: GameInfoLogic
+    Visible: False
+    Children:
+    	Label@TITLE:
+    		Width: PARENT_RIGHT
+    		Y: 0 - 17
+    		Text: Game Information
+    		Align: Center
+    		Font: BigBold
+    		Contrast: true
+    	Container@TAB_CONTAINER_2:
+    		Visible: False
+    		Children:
+    			Button@BUTTON1:
+    				Y: 5
+    				Width: 140
+    				Height: 35
+    			Button@BUTTON2:
+    				X: 150
+    				Y: 5
+    				Width: 140
+    				Height: 35
+    	Container@TAB_CONTAINER_3:
+    		Visible: False
+    		Children:
+    			Button@BUTTON1:
+    				Y: 5
+    				Width: 140
+    				Height: 35
+    			Button@BUTTON2:
+    				X: 150
+    				Y: 5
+    				Width: 140
+    				Height: 35
+    			Button@BUTTON3:
+    				X: 300
+    				Y: 5
+    				Width: 140
+    				Height: 35
+    	Container@TAB_CONTAINER_4:
+    		Visible: False
+    		Children:
+    			Button@BUTTON1:
+    				Y: 5
+    				Width: 121
+    				Height: 35
+    			Button@BUTTON2:
+    				X: 131
+    				Y: 5
+    				Width: 120
+    				Height: 35
+    			Button@BUTTON3:
+    				X: 261
+    				Y: 5
+    				Width: 120
+    				Height: 35
+    			Button@BUTTON4:
+    				X: 391
+    				Y: 5
+    				Width: 121
+    				Height: 35
+    	Container@TAB_CONTAINER_5:
+    		Visible: False
+    		Children:
+    			Button@BUTTON1:
+    				Y: 5
+    				Width: 99
+    				Height: 35
+    			Button@BUTTON2:
+    				X: 104
+    				Y: 5
+    				Width: 98
+    				Height: 35
+    			Button@BUTTON3:
+    				X: 207
+    				Y: 5
+    				Width: 98
+    				Height: 35
+    			Button@BUTTON4:
+    				X: 310
+    				Y: 5
+    				Width: 98
+    				Height: 35
+    			Button@BUTTON5:
+    				X: 413
+    				Y: 5
+    				Width: 99
+    				Height: 35
+    	Background@BACKGROUND:
+    		Y: 39
+    		Width: PARENT_RIGHT
+    		Height: PARENT_BOTTOM
+    		Background: panel-black
+    		Children:
+    			Container@STATS_PANEL:
+    			Container@MAP_PANEL:
+    				Width: PARENT_RIGHT
+    				Height: PARENT_BOTTOM
+    			Container@OBJECTIVES_PANEL:
+    				Width: PARENT_RIGHT
+    			Container@DEBUG_PANEL:
+    				Width: PARENT_RIGHT
+    				Height: PARENT_BOTTOM
+    			Container@CHAT_PANEL:
+    				Width: PARENT_RIGHT
+    				Height: PARENT_BOTTOM
+    			Container@LOBBY_OPTIONS_PANEL:
+    				Width: PARENT_RIGHT
+    				Height: PARENT_BOTTOM

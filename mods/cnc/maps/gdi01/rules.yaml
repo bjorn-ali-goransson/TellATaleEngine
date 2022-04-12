@@ -1,111 +1,111 @@
 World:
-	LuaScript:
-		Scripts: campaign.lua, utils.lua, gdi01.lua
-	MusicPlaylist:
-		StartingMusic: aoi
-	MissionData:
-		Briefing: Use the units provided to protect the Mobile Construction Vehicle (MCV).\n\nYou should then deploy the MCV by selecting it with a left-click and then right-clicking on it.\n\nThen you can begin to build up a base. Start with a Power Plant.\n\nFinally, search out and destroy all enemy Nod units in the surrounding area.
-		BackgroundVideo: intro2.vqa
-		BriefingVideo: gdi1.vqa
-		StartVideo: landing.vqa
-		WinVideo: consyard.vqa
-		LossVideo: gameover.vqa
+    LuaScript:
+    	Scripts: campaign.lua, utils.lua, gdi01.lua
+    MusicPlaylist:
+    	StartingMusic: aoi
+    MissionData:
+    	Briefing: Use the units provided to protect the Mobile Construction Vehicle (MCV).\n\nYou should then deploy the MCV by selecting it with a left-click and then right-clicking on it.\n\nThen you can begin to build up a base. Start with a Power Plant.\n\nFinally, search out and destroy all enemy Nod units in the surrounding area.
+    	BackgroundVideo: intro2.vqa
+    	BriefingVideo: gdi1.vqa
+    	StartVideo: landing.vqa
+    	WinVideo: consyard.vqa
+    	LossVideo: gameover.vqa
 
 NUKE:
-	-Sellable:
-	Demolishable:
-		-Condition:
-	Buildable:
-		BuildLimit: 1
+    -Sellable:
+    Demolishable:
+    	-Condition:
+    Buildable:
+    	BuildLimit: 1
 
 PYLE:
-	-Sellable:
-	Demolishable:
-		-Condition:
-	Buildable:
-		BuildLimit: 1
+    -Sellable:
+    Demolishable:
+    	-Condition:
+    Buildable:
+    	BuildLimit: 1
 
 FACT:
-	-Sellable:
+    -Sellable:
 
 PROC:
-	Buildable:
-		Prerequisites: ~disabled
+    Buildable:
+    	Prerequisites: ~disabled
 
 SILO:
-	Buildable:
-		Prerequisites: ~disabled
+    Buildable:
+    	Prerequisites: ~disabled
 
 WEAP:
-	Buildable:
-		Prerequisites: ~disabled
+    Buildable:
+    	Prerequisites: ~disabled
 
 HQ:
-	Buildable:
-		Prerequisites: ~disabled
+    Buildable:
+    	Prerequisites: ~disabled
 
 NUK2:
-	Buildable:
-		Prerequisites: ~disabled
+    Buildable:
+    	Prerequisites: ~disabled
 
 FIX:
-	Buildable:
-		Prerequisites: ~disabled
+    Buildable:
+    	Prerequisites: ~disabled
 
 HPAD:
-	Buildable:
-		Prerequisites: ~disabled
+    Buildable:
+    	Prerequisites: ~disabled
 
 EYE:
-	Buildable:
-		Prerequisites: ~disabled
+    Buildable:
+    	Prerequisites: ~disabled
 
 GUN:
-	Buildable:
-		Prerequisites: ~disabled
+    Buildable:
+    	Prerequisites: ~disabled
 
 GTWR:
-	Buildable:
-		Prerequisites: ~disabled
+    Buildable:
+    	Prerequisites: ~disabled
 
 ATWR:
-	Buildable:
-		Prerequisites: ~disabled
+    Buildable:
+    	Prerequisites: ~disabled
 
 SBAG:
-	-Crushable:
-	Buildable:
-		Prerequisites: ~disabled
+    -Crushable:
+    Buildable:
+    	Prerequisites: ~disabled
 
 CYCL:
-	-Crushable:
-	Buildable:
-		Prerequisites: ~disabled
+    -Crushable:
+    Buildable:
+    	Prerequisites: ~disabled
 
 BRIK:
-	Buildable:
-		Prerequisites: ~disabled
+    Buildable:
+    	Prerequisites: ~disabled
 
 E2:
-	Buildable:
-		Prerequisites: ~disabled
+    Buildable:
+    	Prerequisites: ~disabled
 
 E3:
-	Buildable:
-		Prerequisites: ~disabled
+    Buildable:
+    	Prerequisites: ~disabled
 
 E6:
-	Buildable:
-		Prerequisites: ~disabled
+    Buildable:
+    	Prerequisites: ~disabled
 
 RMBO:
-	Buildable:
-		Prerequisites: ~disabled
+    Buildable:
+    	Prerequisites: ~disabled
 
 BOAT:
-	Health:
-		HP: 150000
-	AutoTarget:
-		InitialStance: AttackAnything
-	RejectsOrders:
-		Except: Attack
+    Health:
+    	HP: 150000
+    AutoTarget:
+    	InitialStance: AttackAnything
+    RejectsOrders:
+    	Except: Attack
