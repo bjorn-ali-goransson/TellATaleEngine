@@ -154,8 +154,8 @@ Actors:
         Owner: Nod
         Health: 19
         Facing: 640
-    Actor86: test
-        Location: 48,55
+    # Actor86: test
+    #     Location: 48,55
     Actor92: e1
         Location: 57,45
         Owner: Nod
