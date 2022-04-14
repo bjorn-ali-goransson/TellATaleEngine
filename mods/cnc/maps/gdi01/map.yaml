@@ -145,7 +145,7 @@ Actors:
         Health: 50
         Facing: 640
     Actor84: gun
-        Location: 41,55
+        Location: 47,55
         Owner: Nod
         Health: 50
         Facing: 640
@@ -154,6 +154,8 @@ Actors:
         Owner: Nod
         Health: 19
         Facing: 640
+    Actor86: test
+        Location: 48,55
     Actor92: e1
         Location: 57,45
         Owner: Nod
