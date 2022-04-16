@@ -828,6 +828,9 @@ TMPL:
         Amount: -150
     ProvidesPrerequisite@buildingname:
 
+test:
+    RenderPolygon:
+
 GUN:
     Inherits: ^Defense
     Inherits@AUTOTARGET: ^AutoTargetGround
