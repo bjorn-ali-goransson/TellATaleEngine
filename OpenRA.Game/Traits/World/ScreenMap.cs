@@ -196,7 +196,8 @@ namespace OpenRA.Traits
 
 		public IEnumerable<Actor> RenderableActorsInBox(int2 a, int2 b)
 		{
-			return partitionedRenderableActors.InBox(RectWithCorners(a, b)).Where(actorIsInWorld);
+			var inbox = partitionedRenderableActors.InBox(RectWithCorners(a, b)).ToList();
+			return inbox.Where(actorIsInWorld);
 		}
 
 		public IEnumerable<IEffect> RenderableEffectsInBox(int2 a, int2 b)

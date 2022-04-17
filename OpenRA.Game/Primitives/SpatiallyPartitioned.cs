@@ -119,7 +119,8 @@ namespace OpenRA.Primitives
 				for (var col = minCol; col < maxCol; col++)
 				{
 					var binBounds = BinBounds(row, col);
-					foreach (var kvp in BinAt(row, col))
+					var bin = BinAt(row, col);
+					foreach (var kvp in bin)
 					{
 						var item = kvp.Key;
 						var bounds = kvp.Value;

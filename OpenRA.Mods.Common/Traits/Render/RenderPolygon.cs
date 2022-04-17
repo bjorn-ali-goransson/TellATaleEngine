@@ -22,12 +22,12 @@ namespace OpenRA.Mods.Common.Traits.Render
 	{
 		public IEnumerable<IRenderable> Render(Actor self, WorldRenderer wr)
 		{
-			throw new NotImplementedException();
+			return new List<IRenderable> { new PolygonRenderable(self.CenterPosition, new WVec(), 0, false) };
 		}
 
 		public IEnumerable<Rectangle> ScreenBounds(Actor self, WorldRenderer wr)
 		{
-			throw new NotImplementedException();
+			return new List<Rectangle> { new Rectangle(wr.ScreenPxPosition(self.CenterPosition), new Size(1, 1)) };
 		}
 
 		public virtual void Tick(Actor self)

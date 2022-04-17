@@ -34,8 +34,12 @@ namespace OpenRA.Graphics
 
 		public void Render(WorldRenderer wr)
 		{
+			var p = wr.Screen3DPxPosition(pos);
+			var tl = wr.Viewport.WorldToViewPx(p);
+			var br = wr.Viewport.WorldToViewPx(p + new float3(10, 10, 10));
+			Game.Renderer.RgbaColorRenderer.DrawRect(tl, br, 1, Color.Red);
 			//var wsr = Game.Renderer.WorldPolygonRenderer;
-
+			//throw new NotImplementedException();
 			//wsr.DrawSprite();
 		}
 
