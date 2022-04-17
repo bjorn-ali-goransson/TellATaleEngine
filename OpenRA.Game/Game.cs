@@ -488,17 +488,7 @@ namespace OpenRA
 
 			JoinLocal();
 
-			var mapName = args.GetValue("Game.Map", null);
-			var selectedMap = mapName != null ? ModData.MapCache.FirstOrDefault(m => Path.GetFileName(m.Package.Name) == mapName) : null;
-
-			if (selectedMap != null)
-			{
-				Game.CreateAndStartLocalServer(selectedMap.Uid, new List<Order> { Order.Command($"state {Session.ClientState.Ready}")});
-			}
-			else
-            {
-				ModData.LoadScreen.StartGame(args);
-            }
+			ModData.LoadScreen.StartGame(args);
 		}
 
 		public static void LoadEditor(string mapUid)
